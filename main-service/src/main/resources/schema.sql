@@ -22,6 +22,7 @@ CREATE table IF NOT EXISTS requests(
     resource_id  bigint REFERENCES resources (resource_id) ON DELETE CASCADE,
     user_ticket_series int NOT NULL,
     user_ticket_number int NOT NULL,
+    request_states varchar NOT NULL,
     FOREIGN KEY (user_ticket_series, user_ticket_number)
         REFERENCES users (ticket_series, ticket_number) ON DELETE CASCADE
 );
