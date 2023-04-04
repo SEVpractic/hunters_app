@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import sev.custom.mainservice.service.RequestService;
 
 import javax.validation.constraints.Positive;
 
@@ -13,7 +14,7 @@ import javax.validation.constraints.Positive;
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Validated
 public class RequestController {
-    private final RequestServise requestServise;
+    private final RequestService requestServise;
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
