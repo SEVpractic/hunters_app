@@ -1,7 +1,7 @@
 package sev.custom.mainservice.util;
 
-public enum RequestStates {
+public enum States {
     PENDING,
-    PUBLISHED,
+    APPROVED,
     CANCELED
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -15,13 +16,16 @@ import java.util.Objects;
 public class User {
     @EmbeddedId
     private UserPk userPk;
-    private Long id;
     @Column(name = "name")
     private String name;
+    @Column(name = "ticket_start_date")
+    private LocalDateTime ticketStartDate;
 
     @Embeddable
     @NoArgsConstructor
-    public class UserPk implements Serializable {
+    @Getter
+    @Setter
+    public static class UserPk implements Serializable {
         @Column(name = "ticket_series")
         private Integer ticketSeries;
         @Column(name = "ticket_number")

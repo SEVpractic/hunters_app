@@ -2,7 +2,7 @@ package sev.custom.mainservice.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import sev.custom.mainservice.util.RequestStates;
+import sev.custom.mainservice.util.States;
 import sev.custom.mainservice.util.RequestType;
 
 import javax.persistence.*;
@@ -30,5 +30,5 @@ public class Request {
     @Column(name = "resource_amount")
     private Integer resourceAmount;
     @Column(name = "request_states")
-    private RequestStates requestState;
+    private States requestState;
 }

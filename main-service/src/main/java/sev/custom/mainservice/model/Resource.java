@@ -23,4 +23,6 @@ public class Resource {
     private LocalDateTime requestAcceptingBegin;
     @Column(name = "request_accepting_end")
     private LocalDateTime requestAcceptingEnd;
+    @Column(name = "resource_state")
+    private String resourceState;
 }

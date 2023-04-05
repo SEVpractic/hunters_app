@@ -18,28 +18,28 @@ import javax.validation.constraints.Positive;
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Validated
 public class RequestController {
-    private final RequestService requestServise;
+    private final RequestService requestService;
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
     public RequestFullDto create(@Validated(CreateValidationGroup.class) RequestIncomeDto dto) {
-        return requestServise.create(dto);
+        return requestService.create(dto);
     }
 
     @PatchMapping(path = "/{requestId}")
     public RequestFullDto update(@Validated(UpdateValidationGroup.class) RequestIncomeDto dto,
                                  @PathVariable("requestId") @Positive long requestId) {
-        return requestServise.update(dto, requestId);
+        return requestService.update(dto, requestId);
     }
 
     @GetMapping(path = "/{requestId}")
     public RequestFullDto get(@PathVariable("requestId") @Positive long requestId) {
-        return requestServise.get(requestId);
+        return requestService.get(requestId);
     }
 
     @DeleteMapping(path = "/{requestId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("requestId") @Positive long requestId) {
-        requestServise.delete(requestId);
+        requestService.delete(requestId);
     }
 }
