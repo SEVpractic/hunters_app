@@ -22,12 +22,10 @@ public class RequestIncomeDto {
     private final RequestType requestType;
     @NotNull(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
     private LocalDateTime ticketStartDate;
-    @NotNull(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
-    @Positive(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
-    private final Integer ticketSeries;
-    @NotNull(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
-    @Positive(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
-    private final Integer ticketNumber;
+    @NotBlank(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
+    private final String ticketSeries;
+    @NotBlank(groups = {CreateValidationGroup.class, UpdateValidationGroup.class})
+    private final String ticketNumber;
     @NotNull(groups = {CreateValidationGroup.class})
     @Positive(groups = {CreateValidationGroup.class})
     private final Long resourceId;

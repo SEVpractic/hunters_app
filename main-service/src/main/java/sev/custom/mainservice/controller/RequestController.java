@@ -22,22 +22,22 @@ public class RequestController {
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    public RequestFullDto create(@Validated(CreateValidationGroup.class) RequestIncomeDto dto) {
+    public RequestFullDto create(@Validated(CreateValidationGroup.class) @RequestBody RequestIncomeDto dto) {
         return requestService.create(dto);
     }
 
-    @PatchMapping(path = "/{requestId}")
-    public RequestFullDto update(@Validated(UpdateValidationGroup.class) RequestIncomeDto dto,
+    @PatchMapping("/{requestId}")
+    public RequestFullDto update(@Validated(UpdateValidationGroup.class) @RequestBody RequestIncomeDto dto,
                                  @PathVariable("requestId") @Positive long requestId) {
         return requestService.update(dto, requestId);
     }
 
-    @GetMapping(path = "/{requestId}")
+    @GetMapping("/{requestId}")
     public RequestFullDto get(@PathVariable("requestId") @Positive long requestId) {
         return requestService.get(requestId);
     }
 
-    @DeleteMapping(path = "/{requestId}")
+    @DeleteMapping("/{requestId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("requestId") @Positive long requestId) {
         requestService.delete(requestId);

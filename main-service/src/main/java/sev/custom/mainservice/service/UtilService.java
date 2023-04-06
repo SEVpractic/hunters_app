@@ -33,7 +33,7 @@ public class UtilService {
 
     @Transactional
     public User findUserOrSave(User user) {
-        return userRepo.findById(user.getUserPk())
+        return userRepo.findByTicketSeriesAndTicketNumber(user.getTicketSeries(), user.getTicketNumber())
                 .orElseGet(() -> userRepo.save(user));
     }
 

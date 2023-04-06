@@ -24,6 +24,8 @@
 
     <modules>
         <module>main-service</module>
+        <module>check-service</module>
+        <module>util</module>
     </modules>
 
     <dependencies>

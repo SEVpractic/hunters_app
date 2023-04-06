@@ -29,6 +29,7 @@ public class ResourceServiceImpl implements ResourceService {
 
         resource.setResourceState(States.APPROVED.name());
         resource = resourceRepo.save(resource);
+        log.info("Сохранен ресурс id = {} ", resource.getId());
 
         return toResourceFullDto(resource);
     }
@@ -39,6 +40,7 @@ public class ResourceServiceImpl implements ResourceService {
         Resource resource = utilService.findResourceOrThrow(resourceId);
 
         update(dto, resource);
+        log.info("Обновлен ресурс id = {} ", resource.getId());
 
         return toResourceFullDto(resource);
     }
@@ -46,6 +48,7 @@ public class ResourceServiceImpl implements ResourceService {
     @Override
     public ResourceFullDto get(long resourceId) {
         Resource resource = utilService.findResourceOrThrow(resourceId);
+        log.info("Найден запрос id = {} ", resource.getId());
 
         return toResourceFullDto(resource);
     }
@@ -56,6 +59,7 @@ public class ResourceServiceImpl implements ResourceService {
         Resource resource = utilService.findResourceOrThrow(resourceId);
 
         resourceRepo.delete(resource);
+        log.info("Удален ресурс id = {} ", resourceId);
     }
 
     private void update(ResourceIncomeDto dto, Resource resource) {

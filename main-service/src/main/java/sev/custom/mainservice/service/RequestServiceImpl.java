@@ -27,6 +27,7 @@ public class RequestServiceImpl implements RequestService {
     private final RequestRepo requestRepo;
 
     @Override
+    @Transactional
     public RequestFullDto create(RequestIncomeDto dto) {
         User user = utilService.findUserOrSave(toUser(dto));
         Resource resource = utilService.findResourceOrThrow(dto.getResourceId());
@@ -34,31 +35,37 @@ public class RequestServiceImpl implements RequestService {
 
         request.setRequestState(States.PENDING);
         request = requestRepo.save(request);
+        log.info("Сохранен запрос id = {} ", request.getId());
 
         return toRequestFullDto(request);
     }
 
     @Override
+    @Transactional
     public RequestFullDto update(RequestIncomeDto dto, long requestId) {
         Request request = utilService.findRequestOrThrow(requestId);
 
         update(dto, request);
+        log.info("Обновлен запрос id = {} ", request.getId());
 
-        return null;
+        return toRequestFullDto(request);
     }
 
     @Override
     public RequestFullDto get(long requestId) {
         Request request = utilService.findRequestOrThrow(requestId);
+        log.info("Найден запрос id = {} ", request.getId());
 
         return toRequestFullDto(request);
     }
 
     @Override
+    @Transactional
     public void delete(long requestId) {
         Request request = utilService.findRequestOrThrow(requestId);
 
         requestRepo.delete(request);
+        log.info("Удален запрос id = {} ", requestId);
     }
 
     private void update(RequestIncomeDto dto, Request request) {

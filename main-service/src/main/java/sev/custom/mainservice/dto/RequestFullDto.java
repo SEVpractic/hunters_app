@@ -14,8 +14,8 @@ public class RequestFullDto {
     private final String name;
     private final RequestType requestType;
     private LocalDateTime ticketStartDate;
-    private final Integer ticketSeries;
-    private final Integer ticketNumber;
+    private final String ticketSeries;
+    private final String ticketNumber;
     private final ResourceFullDto resource;
     private final String resourceLocationName;
     private final Integer resourceAmount;

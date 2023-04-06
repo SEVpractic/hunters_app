@@ -19,8 +19,7 @@ public class Request {
     @Column(name = "request_type")
     private RequestType requestType;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_ticket_series")
-    @JoinColumn(name = "user_ticket_number")
+    @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "resource_id")
@@ -29,6 +28,6 @@ public class Request {
     private String resourceLocationName;
     @Column(name = "resource_amount")
     private Integer resourceAmount;
-    @Column(name = "request_states")
+    @Column(name = "request_state")
     private States requestState;
 }

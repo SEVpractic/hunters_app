@@ -22,22 +22,22 @@ public class ResourceController {
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    public ResourceFullDto create(@Validated(CreateValidationGroup.class) ResourceIncomeDto dto) {
+    public ResourceFullDto create(@Validated(CreateValidationGroup.class) @RequestBody ResourceIncomeDto dto) {
         return resourceService.create(dto);
     }
 
-    @PatchMapping(path = "/{resourceId}")
-    public ResourceFullDto update(@Validated(UpdateValidationGroup.class) ResourceIncomeDto dto,
+    @PatchMapping("/{resourceId}")
+    public ResourceFullDto update(@Validated(UpdateValidationGroup.class) @RequestBody ResourceIncomeDto dto,
                                  @PathVariable("resourceId") @Positive long resourceId) {
         return resourceService.update(dto, resourceId);
     }
 
-    @GetMapping(path = "/{resourceId}")
+    @GetMapping("/{resourceId}")
     public ResourceFullDto get(@PathVariable("resourceId") @Positive long resourceId) {
         return resourceService.get(resourceId);
     }
 
-    @DeleteMapping(path = "/{resourceId}")
+    @DeleteMapping("/{resourceId}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("resourceId") @Positive long resourceId) {
         resourceService.delete(resourceId);
