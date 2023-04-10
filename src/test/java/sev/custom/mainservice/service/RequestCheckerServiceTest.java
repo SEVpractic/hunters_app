@@ -17,7 +17,7 @@ import sev.custom.mainservice.model.States;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static sev.custom.mainservice.service.TestDataCreator.createRequestDto;
+import static sev.custom.mainservice.util.TestDataCreator.createRequestDto;
 
 @RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

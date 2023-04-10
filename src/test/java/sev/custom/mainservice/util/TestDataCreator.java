@@ -1,4 +1,4 @@
-package sev.custom.mainservice.service;
+package sev.custom.mainservice.util;
 
 import lombok.experimental.UtilityClass;
 import sev.custom.mainservice.dto.RequestIncomeDto;

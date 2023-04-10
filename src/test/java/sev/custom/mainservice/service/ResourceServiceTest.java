@@ -20,8 +20,8 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static sev.custom.mainservice.service.TestDataCreator.createResourceDto;
-import static sev.custom.mainservice.service.TestDataCreator.updateResourceDto;
+import static sev.custom.mainservice.util.TestDataCreator.createResourceDto;
+import static sev.custom.mainservice.util.TestDataCreator.updateResourceDto;
 
 @RunWith(SpringRunner.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

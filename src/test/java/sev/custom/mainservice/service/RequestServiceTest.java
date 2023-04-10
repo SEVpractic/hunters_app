@@ -19,8 +19,8 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static sev.custom.mainservice.service.TestDataCreator.createRequestDto;
-import static sev.custom.mainservice.service.TestDataCreator.updateRequestDto;
+import static sev.custom.mainservice.util.TestDataCreator.createRequestDto;
+import static sev.custom.mainservice.util.TestDataCreator.updateRequestDto;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
